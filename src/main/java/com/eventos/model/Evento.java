@@ -1,6 +1,8 @@
 package com.eventos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class Evento {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Evento extends RepresentationModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
